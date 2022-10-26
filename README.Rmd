@@ -13,14 +13,16 @@ knitr::opts_chunk$set(
 )
 ```
 
-# cadea
+# Composition Aware Differential Expression Analyses
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/cadea)](https://CRAN.R-project.org/package=cadea)
 <!-- badges: end -->
 
-The goal of cadea is to ...
+This package is the accompanying software for the method described in TBA.
+
+In this method, we perform differential expression analyses for genes under the assumption that tissue composition influences gene expression. This amounts to representing the read count for gene $i$ in sample $j$ as $Y_{ij} = \sum_{k = 1}^K Y_{ijk}$, where $Y_{ijk}$ is the read count of gene $i$ in sample $j$ contributed by celltype $k$. We typically assume that the read count $Y_{ij}$ described above to be a negative binomial, where the mean variance relationship is parametrized as $\sigma_{ij}^2 = \mu_{ij} + \delta_{ij}\mu_{ij}^2$. We similarly assume that $Y_{ijk} \sim NB(\nu_{ijk}, \tau_{ijk})$, implying that $Y_{ij} = \sum_{k = 1}^K Y_{ijk}$ is rather distributed according to the convolution of the cell type distributions. Such distributions have been derived by Edward Furman in his paper \textit{On the convolution of the negative binomial random variables.} 
 
 ## Installation
 
@@ -28,7 +30,7 @@ You can install the development version of cadea from [GitHub](https://github.co
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("zachbrehm/cadea")
+# devtools::install_github("zachbrehm/cadea")
 ```
 
 ## Example
@@ -36,14 +38,14 @@ devtools::install_github("zachbrehm/cadea")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-library(cadea)
+#  library(cadea)
 ## basic example code
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
 ```{r cars}
-summary(cars)
+#summary(cars)
 ```
 
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. You could also use GitHub Actions to re-render `README.Rmd` every time you push. An example workflow can be found here: <https://github.com/r-lib/actions/tree/v1/examples>.
@@ -51,7 +53,7 @@ You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-da
 You can also embed plots, for example:
 
 ```{r pressure, echo = FALSE}
-plot(pressure)
+#plot(pressure)
 ```
 
 In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
